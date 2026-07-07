@@ -1,0 +1,17 @@
+# Render Blueprint — deploys Front Desk AI as a free web service.
+# After connecting the repo in Render, set GEMINI_API_KEY in the dashboard
+# (it is marked sync:false so it is NOT read from this file / git).
+services:
+  - type: web
+    name: front-desk-ai
+    runtime: python
+    plan: free
+    buildCommand: pip install -r requirements.txt
+    startCommand: python server.py
+    envVars:
+      - key: GEMINI_API_KEY
+        sync: false
+      - key: DAILY_REQUEST_CAP
+        value: "200"
+      - key: PYTHON_VERSION
+        value: "3.12.5"

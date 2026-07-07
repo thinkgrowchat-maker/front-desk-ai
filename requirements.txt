@@ -1,0 +1,2 @@
+# Front Desk AI has NO third-party dependencies — Python standard library only.
+# This file exists so hosts (Render, etc.) detect a Python service.

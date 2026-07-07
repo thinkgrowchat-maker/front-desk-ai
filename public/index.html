@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Front Desk AI · The Copper Kettle</title>
+  <link rel="stylesheet" href="/styles.css" />
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand">
+      <span class="mark">CK</span>
+      <div>
+        <h1>The Copper Kettle</h1>
+        <p>Front Desk AI — always-on answers for your guests</p>
+      </div>
+    </div>
+    <div class="status">
+      <span id="mode-pill" class="pill pill-muted">connecting…</span>
+      <span id="model-pill" class="pill pill-ghost"></span>
+    </div>
+  </header>
+
+  <main class="layout">
+    <!-- Chat -->
+    <section class="chat-card">
+      <div id="messages" class="messages">
+        <div class="bubble bot">
+          <p>Hi! I'm the front desk assistant for The Copper Kettle. Ask me about
+             hours, reservations, the menu, parking, private events — anything.</p>
+        </div>
+      </div>
+
+      <div class="chips" id="chips">
+        <button class="chip">What time do you close on Sunday?</button>
+        <button class="chip">Can I bring my dog?</button>
+        <button class="chip">Do you have vegan options?</button>
+        <button class="chip">I have a severe peanut allergy — is that ok?</button>
+        <button class="chip">Can I book the restaurant for a wedding?</button>
+      </div>
+
+      <form id="composer" class="composer">
+        <input id="input" type="text" autocomplete="off"
+               placeholder="Ask a question…" />
+        <button id="send" type="submit">Send</button>
+      </form>
+    </section>
+
+    <!-- Retrieval Inspector -->
+    <aside class="inspector">
+      <h2>Retrieval Inspector</h2>
+      <p class="inspector-sub">A look under the hood at every answer.</p>
+
+      <div class="panel">
+        <div class="panel-label">Status</div>
+        <div id="ins-status" class="status-line idle">Waiting for a question…</div>
+      </div>
+
+      <div class="panel">
+        <div class="panel-label">Knowledge retrieved <span class="hint">(cosine similarity)</span></div>
+        <div id="ins-sources" class="sources">
+          <div class="empty">Nothing retrieved yet.</div>
+        </div>
+      </div>
+
+      <div class="panel" id="ins-escalation-wrap" hidden>
+        <div class="panel-label">Escalation note (staff-only)</div>
+        <div id="ins-escalation" class="escalation"></div>
+      </div>
+
+      <div class="guardrail">
+        <strong>Guardrail:</strong> the assistant may only answer from retrieved
+        knowledge. If the answer isn't there — or the question is high-stakes
+        (allergies, custom quotes, complaints) — it hands off to a human instead
+        of guessing.
+      </div>
+    </aside>
+  </main>
+
+  <script src="/app.js"></script>
+</body>
+</html>
