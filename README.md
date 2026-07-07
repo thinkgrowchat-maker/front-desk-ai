@@ -10,6 +10,9 @@ whole "brain" lives in one file ([`knowledge_base.py`](knowledge_base.py)) — s
 it for any business (salon, clinic, contractor, shop) and everything else works
 unchanged.
 
+**▶️ Live demo: https://front-desk-ai.onrender.com**
+&nbsp;·&nbsp; *(free-tier hosted — the first load after a quiet spell may take ~30s to wake up)*
+
 <!-- Add a screenshot of the running app here for your portfolio / GitHub:
      ![Front Desk AI](docs/screenshot.png) -->
 
